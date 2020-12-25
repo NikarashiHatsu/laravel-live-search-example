@@ -15,6 +15,8 @@ class CreateUserDataTable extends Migration
     {
         Schema::create('user_data', function (Blueprint $table) {
             $table->id();
+            $table->string('full_name');
+            $table->string('profile_picture_path');
             $table->timestamps();
         });
     }

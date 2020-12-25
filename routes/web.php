@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserDataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('user_data', UserDataController::class);
+Route::get('user_data/search/{nama}', [UserDataController::class, 'search'])->name('user_data.search');

@@ -14,7 +14,20 @@ class UserDataController extends Controller
      */
     public function index()
     {
-        //
+        return view('user_data.index');
+    }
+
+    /**
+     * Digunakan untuk search
+     * 
+     * @param string $nama
+     * @return \Illuminate\Http\Response
+     */
+    public function search($nama)
+    {
+        $user_data = UserData::where('full_name', 'LIKE', "%$nama%")->get();
+        
+        return $user_data;
     }
 
     /**
@@ -46,7 +59,7 @@ class UserDataController extends Controller
      */
     public function show(UserData $userData)
     {
-        //
+        return "Welp, that's it. For other features such as RegExp, I'm pretty sure you're better than me. Good luck.";
     }
 
     /**
